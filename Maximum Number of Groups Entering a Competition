@@ -1,0 +1,11 @@
+class Solution {
+    public int maximumGroups(int[] grades) {
+        int a = 0;
+        int b = 0;
+        while(a +b + 1 <= grades.length){
+            a += ++b;
+           
+        }
+        return b;
+    }
+}
