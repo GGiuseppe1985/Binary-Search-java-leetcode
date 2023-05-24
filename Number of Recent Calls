@@ -1,0 +1,35 @@
+class RecentCounter {
+    ArrayList<Integer> result = new ArrayList<>();
+
+
+    public RecentCounter() {
+        
+    }
+    
+    public int ping(int t) {
+        result.add(t);
+        return result.size() - find(t -3000, result, 0, result.size() - 1);
+        
+    }
+    public int find(int value, ArrayList<Integer> hs, int left, int right){
+        while(left <= right){
+            int mid = (left + right)/2;
+            if(hs.get(mid) == value){
+                return mid;
+            }
+            if(hs.get(mid) > value){
+                right = mid - 1;
+            }
+            if(hs.get(mid) < value){
+                left = mid + 1;
+            }
+        }
+        return left;
+    }
+}
+
+/**
+ * Your RecentCounter object will be instantiated and called as such:
+ * RecentCounter obj = new RecentCounter();
+ * int param_1 = obj.ping(t);
+ */
